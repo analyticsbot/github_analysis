@@ -1,0 +1,73 @@
+are there any differences between open-source projects -- corporate sponsored companies vs non-corporate of projects?
+
+non-corporate
+ commit_comments     commits           followers        following    
+ Min.   :  1.00   Min.   :     1.0   Min.   :   1.0   Min.   :  1.0  
+ 1st Qu.:  1.00   1st Qu.:    12.0   1st Qu.:   2.0   1st Qu.:  3.0  
+ Median :  3.00   Median :    53.0   Median :   6.0   Median :  8.0  
+ Mean   : 28.06   Mean   :   760.6   Mean   :  29.4   Mean   : 23.2  
+ 3rd Qu.: 11.00   3rd Qu.:   270.0   3rd Qu.:  15.0   3rd Qu.: 22.0  
+ Max.   :922.00   Max.   :112748.0   Max.   :2118.0   Max.   :624.0  
+ NA's   :535      NA's   :155        NA's   :222      NA's   :222    
+ issue_coments       subscribed        mentioned        ubsubscribed   
+ Min.   :   1.00   Min.   :   1.00   Min.   :   1.00   Min.   : 1.000  
+ 1st Qu.:   2.00   1st Qu.:   1.00   1st Qu.:   1.00   1st Qu.: 1.000  
+ Median :   7.00   Median :   3.00   Median :   3.00   Median : 1.000  
+ Mean   :  69.29   Mean   :  37.52   Mean   :  27.03   Mean   : 1.688  
+ 3rd Qu.:  34.00   3rd Qu.:  13.00   3rd Qu.:  10.50   3rd Qu.: 1.000  
+ Max.   :2190.00   Max.   :2156.00   Max.   :1696.00   Max.   :10.000  
+ NA's   :305       NA's   :367       NA's   :473       NA's   :612     
+     issues         org_members    project_members   pull_request_comments
+ Min.   :   1.00   Min.   :1.000   Min.   :   1.00   Min.   :  1.00       
+ 1st Qu.:   2.00   1st Qu.:1.000   1st Qu.:   2.00   1st Qu.:  2.00       
+ Median :   6.00   Median :1.000   Median :   4.00   Median :  7.00       
+ Mean   :  33.39   Mean   :1.787   Mean   :  10.91   Mean   : 49.78       
+ 3rd Qu.:  22.00   3rd Qu.:2.000   3rd Qu.:   8.00   3rd Qu.: 19.00       
+ Max.   :1910.00   Max.   :7.000   Max.   :1411.00   Max.   :768.00       
+ NA's   :323       NA's   :520     NA's   :217       NA's   :551          
+ pull_requests       watching     
+ Min.   :  1.00   Min.   :   1.0  
+ 1st Qu.:  1.50   1st Qu.:   7.0  
+ Median :  4.00   Median :  30.0  
+ Mean   : 24.57   Mean   : 105.2  
+ 3rd Qu.: 15.00   3rd Qu.:  98.5  
+ Max.   :707.00   Max.   :3318.0  
+ NA's   :345      NA's   :89
+ 
+ corporate
+  commit_comments     commits          followers         following      
+ Min.   :  1.00   Min.   :    1.0   Min.   :   1.00   Min.   :    1.0  
+ 1st Qu.:  1.00   1st Qu.:   45.0   1st Qu.:   6.00   1st Qu.:    5.0  
+ Median :  4.00   Median :  219.0   Median :  18.00   Median :   15.5  
+ Mean   : 17.73   Mean   :  795.1   Mean   :  96.31   Mean   :  119.1  
+ 3rd Qu.: 11.00   3rd Qu.:  867.0   3rd Qu.:  60.00   3rd Qu.:   35.0  
+ Max.   :263.00   Max.   :11398.0   Max.   :4403.00   Max.   :19289.0  
+ NA's   :202      NA's   :27        NA's   :33        NA's   :38       
+ issue_coments       subscribed       mentioned        ubsubscribed   
+ Min.   :    1.0   Min.   :   1.0   Min.   :   1.00   Min.   : 1.000  
+ 1st Qu.:    8.0   1st Qu.:   3.0   1st Qu.:   2.00   1st Qu.: 1.000  
+ Median :   29.5   Median :  11.0   Median :   6.50   Median : 1.500  
+ Mean   :  329.0   Mean   : 117.5   Mean   :  65.34   Mean   : 2.533  
+ 3rd Qu.:  176.5   3rd Qu.:  45.0   3rd Qu.:  26.75   3rd Qu.: 2.750  
+ Max.   :12623.0   Max.   :4399.0   Max.   :2490.00   Max.   :10.000  
+ NA's   :54        NA's   :77       NA's   :128       NA's   :276     
+     issues         org_members     project_members  pull_request_comments
+ Min.   :   1.00   Min.   : 1.000   Min.   :  1.00   Min.   :   1.00      
+ 1st Qu.:   4.00   1st Qu.: 1.000   1st Qu.:  3.00   1st Qu.:   2.00      
+ Median :  18.00   Median : 1.000   Median :  7.00   Median :   8.50      
+ Mean   :  66.95   Mean   : 2.074   Mean   : 13.51   Mean   : 142.59      
+ 3rd Qu.:  63.00   3rd Qu.: 2.000   3rd Qu.: 17.00   3rd Qu.:  53.25      
+ Max.   :1352.00   Max.   :19.000   Max.   :218.00   Max.   :6275.00      
+ NA's   :56        NA's   :131      NA's   :33       NA's   :186          
+ pull_requests        watching      
+ Min.   :   1.00   Min.   :    1.0  
+ 1st Qu.:   4.00   1st Qu.:   19.0  
+ Median :  13.00   Median :   50.5  
+ Mean   :  47.28   Mean   :  229.3  
+ 3rd Qu.:  40.50   3rd Qu.:  137.2  
+ Max.   :1007.00   Max.   :30133.0  
+ NA's   :67        NA's   :6  
+
+how contribution differs between company affiliated and individual people?
+
+another excel sheet with each row is a project or repo

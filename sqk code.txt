@@ -1,0 +1,111 @@
+SELECT * FROM github.users where id=302;
+SELECT * FROM github.users;
+SELECT user_id, count(user_id) as 'commit_comments' FROM github.commit_comments group by user_id order by 2 desc;
+SELECT * FROM github.commit_parents;
+SELECT * FROM github.commits where author_id<>committer_id;
+SELECT author_id, count(author_id) as 'commits' FROM github.commits group by author_id order by 2 desc;
+SELECT * FROM github.counters;
+SELECT user_id, count(follower_id) as 'followers' FROM github.followers group by user_id order by 2 desc;
+SELECT follower_id, count(user_id) as 'following' FROM github.followers group by follower_id order by 2 desc;
+SELECT * FROM github.forks;
+SELECT user_id, count(*) as 'issue_coments' FROM github.issue_comments group by user_id order by 2 desc;
+select actor_id as user_id, count(*) as 'subscribed'  from issue_events where action = "subscribed" group by user_id order by 2 desc;
+select actor_id as user_id, count(*) as 'mentioned'  from issue_events where action = "mentioned" group by user_id order by 2 desc;
+select actor_id as user_id, count(*) as 'ubsubscribed' from issue_events where action = "unsubscribed" group by user_id order by 2 desc;
+select reporter_id, count(*) as 'issues' from issues group by reporter_id order by 2 desc;
+select user_id, count(*) as 'org_members' from organization_members group by user_id order by 2 desc;
+select user_id, count(*) as 'project_members' from project_members group by user_id order by 2 desc;
+select * from projects;
+select user_id, count(*)  as 'pull_request_comments' from pull_request_comments group by user_id order by 2 desc;
+select * from pull_request_commits;
+select * from pull_request_history;
+select user_id, count(*)  as 'pull_requests' from pull_requests group by user_id order by 2 desc;
+select * from repo_labels;
+select * from schema_info;
+select * from watchers where user_id=302;
+select user_id, count(*)  as 'watching' from watchers  group by user_id order by 2 desc;
+
+select u.*, c.* from users u, (SELECT user_id, count(user_id) as 'commit_comments' FROM github.commit_comments group by user_id order by 2 desc
+) c;
+
+select u.*, c.*, c2.*,c3.*, c4.*, c5.*, c6.*, c7.*, c8.*, c9.*, c10.*, c11.*, c12.*, c13.*, c14.* from
+(select * from 1000users ) u
+inner join (SELECT user_id, count(user_id) as 'commit_comments' FROM github.commit_comments where user_id in (select id from 1000users) group by user_id order by 2 desc) c
+on u.id=c.user_id
+inner join (SELECT author_id as user_id, count(author_id) as 'commits' FROM github.commits where author_id in (select id from 1000users) group by author_id order by 2 desc) c2
+on u.id=c2.user_id
+inner join (SELECT user_id, count(follower_id) as 'followers' FROM github.followers where user_id in (select id from 1000users) group by user_id order by 2 desc) c3
+on u.id=c3.user_id
+inner join (SELECT follower_id as user_id, count(user_id) as 'following' FROM github.followers where follower_id in (select id from 1000users) group by follower_id order by 2 desc) c4
+on u.id = c4.user_id
+inner join (SELECT user_id, count(*) as 'issue_coments' FROM github.issue_comments where user_id in (select id from 1000users) group by user_id order by 2 desc) c5
+on u.id = c5.user_id
+inner join (select actor_id as user_id, count(*) as 'subscribed'  from issue_events where action = "subscribed" and actor_id in (select id from 1000users) group by user_id order by 2 desc) c6
+on u.id = c6.user_id
+inner join (select actor_id as user_id, count(*) as 'mentioned'  from issue_events where action = "mentioned" and actor_id in (select id from 1000users) group by user_id order by 2 desc) c7
+on u.id = c7.user_id
+inner join (select actor_id as user_id, count(*) as 'ubsubscribed' from issue_events where action = "unsubscribed" and actor_id in (select id from 1000users) group by user_id order by 2 desc) c8
+on u.id = c8.user_id
+inner join  (select reporter_id as user_id, count(*) as 'issues' from issues where reporter_id in (select id from 1000users) group by reporter_id order by 2 desc) c9
+on u.id = c9.user_id
+inner join(select user_id, count(*) as 'org_members' from organization_members where user_id in (select id from 1000users) group by user_id order by 2 desc) c10
+on u.id = c10.user_id
+inner join(select user_id, count(*) as 'project_members' from project_members where user_id in (select id from 1000users) group by user_id order by 2 desc) c11
+on u.id = c11.user_id
+inner join (select user_id, count(*)  as 'pull_request_comments' from pull_request_comments where user_id in (select id from 1000users) group by user_id order by 2 desc) c12
+on u.id = c12.user_id
+inner join (select user_id, count(*)  as 'pull_requests' from pull_requests where user_id in (select id from 1000users) group by user_id order by 2 desc) c13
+on u.id = c13.user_id 
+inner join (select user_id, count(*)  as 'watching' from watchers where user_id in (select id from 1000users) group by user_id order by 2 desc) c14
+on u.id = c14.user_id;
+
+CREATE TABLE `usersData` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `company` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ext_ref_id` varchar(24) NOT NULL DEFAULT '0',
+  `type` varchar(255) NOT NULL DEFAULT 'USR',
+  `commit_comments` int(11) ,
+  `commits` int(11) ,
+  `followers` int(11) ,
+  `following` int(11) ,
+  `issue_coments` int(11) ,
+  `subscribed` int(11) ,
+  `mentioned` int(11) ,
+  `ubsubscribed` int(11) ,
+  `issues` int(11) ,
+   `org_members` int(11) ,
+  `project_members` int(11) ,
+   `pull_request_comments` int(11) ,
+  `pull_requests` int(11) ,
+  `watching` int(11) ,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `login` (`login`),
+  KEY `users_email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2672718 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `1000users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `company` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ext_ref_id` varchar(24) NOT NULL DEFAULT '0',
+  `type` varchar(255) NOT NULL DEFAULT 'USR',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `login` (`login`),
+  KEY `users_email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2672718 DEFAULT CHARSET=utf8;
+
+insert into 1000users  (select * from users limit 1000);
+
+select * from 1000users;
+
+DESCRIBE github.commits;
